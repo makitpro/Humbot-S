@@ -2,6 +2,7 @@ Humbot by Makit
 READ LICENSE FILE BEFORE USING IT
 
 Visit <http://www.makitpro.com> for more details about the project.
+<<<<<<< HEAD
 We recommend unplugging the servos before loading the programs because they may cause load action to fail.
  
 
@@ -23,3 +24,8 @@ const int blueLED_pin = 4;   // Blue LED
 This code is an extension to the main program. The main function will work without this portions.
 We give you two programs, with and without these parts. It's up to you to use one or another or to modify them at your convenience.
 
+=======
+Check License file before using it.
+
+Content on github comming soon...
+>>>>>>> 6a7c6a04ef191adccb0d009995464ef34262d854
