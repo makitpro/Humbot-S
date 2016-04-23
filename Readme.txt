@@ -2,8 +2,8 @@ Humbot by Makit
 READ LICENSE FILE BEFORE USING IT
 
 Visit <http://www.makitpro.com> for more details about the project.
-<<<<<<< HEAD
-We recommend unplugging the servos before loading the programs because they may cause load action to fail.
+
+Note: We recommend unplugging the servos before loading the programs because they may cause load action to fail.
  
 These programs are used by Humbot Sargantana robot to perform different actions.
 Here you have two important tips about the code.
