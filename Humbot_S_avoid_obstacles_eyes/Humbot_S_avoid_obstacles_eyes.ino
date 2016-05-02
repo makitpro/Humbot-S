@@ -71,7 +71,7 @@ Initially we use these, but they can be changed at your convinience.*/
 
 //#################### EASY MODIFICATION ZONE ###############################
 //###########################################################################
-#define TOO_CLOSE 15  //Distance(cm)at which the robot will turn
+#define TOO_CLOSE 10  //Distance(cm)at which the robot will turn
 #define TURN_TIME 500 //Amount of time (ms) that the robot will be turning
 //###########################################################################
 //###########################################################################
@@ -93,7 +93,7 @@ Initially we use these, but they can be changed at your convinience.*/
   int read_Time =150; //Time interval between reading distance
   long distance;
   long previous_distance;
-  int tolerance = 5; //tolerance value to take a reading as valid
+  int tolerance = 10; //tolerance value to take a reading as valid
 /*
 -----------------------------------------------------------------------------
 ------------------------             SETUP         --------------------------
