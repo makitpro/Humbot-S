@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Humbot</string>
+    <string name="settings">Ajustes</string>
+
+    <string name="pollywog">Renacuajo</string>
+    <string name="beetle">Escarabajo</string>
+    <string name="rhino">Rhino</string>
+    <string name="crab">Cangrejo</string>
+    <string name="generic_robot">Robot genérico</string>
+
+    <string name="exit_robot_control_dialog">Se perderá la conexión con este robot, ¿quieres elegir un nuevo tipo de robot?</string>
+    <string name="exit_robot_control_dialog_title">Desconexión del robot</string>
+
+    <!-- Rhino robot -->
+    <string name="charge">Embestir</string>
+
+    <!-- Generic robot -->
+    <string name="command_1">1</string>
+    <string name="command_2">2</string>
+    <string name="command_3">3</string>
+    <string name="command_4">4</string>
+    <string name="command_5">5</string>
+    <string name="command_6">6</string>
+
+    <!-- Crab robot -->
+    <!--<string name="amplitude">Amplitud</string>-->
+    <string name="step_size">Tamaño de los pasos</string>
+    <string name="left_amplitude">Amplitud izquierda: </string>
+    <string name="right_amplitude">Amplitud derecha: </string>
+    <string name="speed">Velocidad</string>
+    <string name="period">Período:</string>
+    <string name="legs_coordination">"Coordinación\nentre patas"</string>
+    <string name="phase_difference">Diferencia de fase: </string>
+    <string name="reset">Reinicializar</string>
+
+    <!-- Tips -->
+    <string name="pin_explanation_tip_text">Si me pulsas, te enseñaré cómo has de conectar mis pines</string>
+    <string name="bluetooth_tip_text">Si me pulsas, me conectaré o desconectaré del robot</string>
+    <string name="pad_tip_text">Si nos pulsas, controlaremos al robot</string>
+    <string name="claws_tip_text">Si nos pulsas, controlaremos las pinzas del robot</string>
+    <string name="line_follower_text">Si me pulsas, activaré o desactivaré la función principal de tu Humbot</string>
+    <string name="light_avoider_text">Si me pulsas, activaré o desactivaré el modo huye luz</string>
+    <string name="obstacles_avoider_text">Si me pulsas, activaré o desactivaré el modo esquiva objetos</string>
+
+</resources>

@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="10dp">
+
+    <include
+        android:id="@+id/pad_layout_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        layout="@layout/pad_layout" />
+
+    <Button
+        android:id="@+id/command_button_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/generic_command_button_green_selector"
+        android:text="@string/command_2"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/command_button_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@id/command_button_2"
+        android:background="@drawable/generic_command_button_green_selector"
+        android:text="@string/command_1"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/command_button_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/command_button_2"
+        android:layout_margin="5dp"
+        android:background="@drawable/generic_command_button_green_selector"
+        android:text="@string/command_4"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/command_button_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/command_button_2"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@id/command_button_4"
+        android:background="@drawable/generic_command_button_green_selector"
+        android:text="@string/command_3"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/command_button_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/command_button_4"
+        android:layout_margin="5dp"
+        android:background="@drawable/generic_command_button_green_selector"
+        android:text="@string/command_6"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/command_button_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/command_button_4"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@id/command_button_6"
+        android:background="@drawable/generic_command_button_green_selector"
+        android:text="@string/command_5"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+
+
+    <ImageButton
+        android:id="@+id/stop_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/btn_green_selector"
+        android:src="@drawable/ic_stop_button" />
+
+</RelativeLayout>

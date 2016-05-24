@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 20
+    }
+
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+            proguardFile file('custom-proguard-android.txt')
+        }
+
+        release {
+            minifyEnabled true
+            proguardFile file('custom-proguard-android.txt')
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile('com.bq.robotic:droid2ino:+@aar') {
+        transitive = true
+    }
+
+    compile 'com.nhaarman.supertooltips:library:3.0.+'
+}

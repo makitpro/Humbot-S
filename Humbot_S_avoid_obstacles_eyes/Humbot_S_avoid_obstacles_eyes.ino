@@ -66,8 +66,8 @@ Definition of pin numbers where sensors and actuators will be connected
 Initially we use these, but they can be changed at your convinience.*/
 #define L_wheel_servo_pin 11   //Left wheel servo
 #define R_wheel_servo_pin 10   //Right wheel servo 
-#define TRIG_PIN 7             //Trigger pin
-#define ECHO_PIN 8             //Echo pin
+#define TRIG_PIN 8             //Trigger pin
+#define ECHO_PIN 9             //Echo pin
 
 //#################### EASY MODIFICATION ZONE ###############################
 //###########################################################################
@@ -76,12 +76,12 @@ Initially we use these, but they can be changed at your convinience.*/
 //###########################################################################
 //###########################################################################
 //---Start of expansion pack led eyes------------------  
-  const int L_REDled_pin = 1;   //Left eye Red LED 
-  const int R_REDled_pin = 6;   //Right eye Red LED
-  const int L_GREENled_pin = 2;   //Left eye Green LED 
-  const int R_GREENled_pin = 5;   //Right eye Green LED
-  const int L_BLUEled_pin = 3;   //Left eye Blue LED 
-  const int R_BLUEled_pin = 4;   //Right eye Blue LED
+  const int L_REDled_pin = 2;   //Left eye Red LED 
+  const int R_REDled_pin = 7;   //Right eye Red LED
+  const int L_GREENled_pin = 3;   //Left eye Green LED 
+  const int R_GREENled_pin = 6;   //Right eye Green LED
+  const int L_BLUEled_pin = 4;   //Left eye Blue LED 
+  const int R_BLUEled_pin = 5;   //Right eye Blue LED
 //---End of expansion pack led eyes------------------  
 
 //Create servo objects for each servo

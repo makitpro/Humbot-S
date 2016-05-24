@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="holo_green_dark">#669900</color>
+    <color name="holo_green_light">#99cc00</color>
+    <color name="holo_green_light_transparent_1">#A099cc00</color>
+    <color name="holo_green_light_transparent_2">#4099cc00</color>
+    <color name="holo_blue_dark">#0099cc</color>
+    <color name="holo_blue_light">#ececec</color>
+    <color name="holo_blue_light_transparent_1">#A033b5e5</color>
+    <color name="holo_blue_light_transparent_2">#4033b5e5</color>
+    <color name="holo_turquoise">#38aeac</color>
+    <color name="holo_turquoise_transparent_1">#A038aeac</color>
+    <color name="holo_turquoise_transparent_2">#4038aeac</color>
+    <color name="orange_transparent_1">#A0f57e29</color>
+    <color name="orange_transparent_2">#40f57e29</color>
+    <color name="red_transparent_1">#A0d72129</color>
+    <color name="red_transparent_2">#40d72129</color>
+    <color name="purple_transparent_1">#A0a62254</color>
+    <color name="purple_transparent_2">#40a62254</color>
+    <color name="preferences_background">#022d4f</color>
+    <color name="semi_transparent_white">#bfffffff</color>
+</resources>
