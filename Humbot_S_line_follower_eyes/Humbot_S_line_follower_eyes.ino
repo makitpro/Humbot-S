@@ -42,6 +42,7 @@ several hashtags (########################) and EASY MODIFICATION ZONE text.
     1.00b Version with 3 IR sensors
     1.10b Added backward when line is lost
           Tested working fine
+    1.30b Reduced speed and increased time  
 --  Date: 07-03-16
 --  Author: Cristobal Selma, Maria Garcia
 
@@ -56,10 +57,10 @@ We neeed to include libraries to be able to use servos
 
 //Definition of the values and speed to make the wheels move 
 #define stop_wheel 90
-#define forward_left_wheel 0
-#define backward_left_wheel 180
-#define forward_right_wheel 180
-#define backward_right_wheel 0
+#define forward_left_wheel 70 //max speed is 0
+#define backward_left_wheel 110 //max speed is 180
+#define forward_right_wheel 110 //max speed is 180
+#define backward_right_wheel 70 //max speed is 0
 
 /*--VARIABLES----------------------------------------------------------------
 Definition of pin numbers where sensors and actuators will be connected
@@ -178,7 +179,7 @@ void loop()
      default: Stop(); 
      break;
    }
-    delay(10);
+    delay(20);//increased from 10 to 20 on version 1.30b
          
 }
 
