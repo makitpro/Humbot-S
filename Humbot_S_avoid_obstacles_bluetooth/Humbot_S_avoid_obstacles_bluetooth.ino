@@ -73,7 +73,7 @@ Initially we use these, but they can be changed at your convinience.*/
 #define L_wheel_servo_pin 11   //Left wheel servo
 #define R_wheel_servo_pin 10   //Right wheel servo 
 #define TRIG_PIN 8             //Trigger pin
-#define ECHO_PIN 9             //Echo pin
+#define ECHO_PIN 7             //Echo pin
 
 //Variables for manual or follow line modes
 #define MANUAL_CONTROL 0
