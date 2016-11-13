@@ -66,8 +66,8 @@ Definition of pin numbers where sensors and actuators will be connected
 Initially we use these, but they can be changed at your convinience.*/
 #define L_wheel_servo_pin 11   //Left wheel servo
 #define R_wheel_servo_pin 10   //Right wheel servo 
-#define TRIG_PIN 7             //Trigger pin
-#define ECHO_PIN 8             //Echo pin
+#define TRIG_PIN 8             //Trigger pin
+#define ECHO_PIN 7             //Echo pin
 
 //#################### EASY MODIFICATION ZONE ###############################
 //###########################################################################
