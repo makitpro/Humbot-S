@@ -59,7 +59,7 @@ We neeed to include libraries to be able to use servos
 #define backward_left_wheel 180
 #define forward_right_wheel 180
 #define backward_right_wheel 0
-#define difference 20
+#define difference 40
 
 //Variables for manual or follow line modes
 #define MANUAL_CONTROL 0
@@ -76,8 +76,8 @@ We neeed to include libraries to be able to use servos
 
 //######################### EASY MODIFICATION ZONE ##########################
 //###########################################################################
-#define dark 400 //Define the value of darkness that will make the robot stop
-#define light 50 //Define the value of light that will make the robot spin (the smaller number the more light)
+#define dark 1000 //Define the value of darkness that will make the robot stop
+#define light 30 //Define the value of light that will make the robot spin (the smaller number the more light)
 #define spin_time 2000 //Time that the robot will be spinning
 #define action "seguir" // You can change between "seguir" (follow) or "huir" (escape)
 //###########################################################################

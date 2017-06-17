@@ -59,12 +59,12 @@ We neeed to include libraries to be able to use servos
 #define backward_left_wheel 180
 #define forward_right_wheel 180
 #define backward_right_wheel 0
-#define difference 20
+#define difference 40
 
 //######################### EASY MODIFICATION ZONE ##########################
 //###########################################################################
-#define dark 400 //Define the value of darkness that will make the robot stop
-#define light 50 //Define the value of light that will make the robot spin (the smaller number the more light)
+#define dark 1000 //Define the value of darkness that will make the robot stop
+#define light 30 //Define the value of light that will make the robot spin (the smaller number the more light)
 #define spin_time 2000 //Time that the robot will be spinning
 #define action "seguir" // You can change between "seguir" (follow) or "huir" (escape)
 //###########################################################################
@@ -119,6 +119,7 @@ void setup()
     state = 0;  //Initialize state 0 (STOP)
     servo_delay = 20; //Time for the servo to make his function
     
+    Serial.begin(9600);
     
 //---Start of LED extra siren------------------   
    pinMode(REDled_pin,OUTPUT); //setup LED as output
@@ -147,7 +148,10 @@ void loop()
 //Read sensors
    L_ldrSensor = analogRead(L_LDR_sensor_pin);
    R_ldrSensor = analogRead(R_LDR_sensor_pin);
-   
+   Serial.print(L_ldrSensor);
+   Serial.print("L-R");
+   Serial.println(R_ldrSensor);
+   //delay(500);// For debugging
 //Assign state dependig on the sensors readings
   if (L_ldrSensor > dark && R_ldrSensor > dark){           //darkness
   state = 0;}

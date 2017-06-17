@@ -63,10 +63,10 @@ We neeed to include libraries to be able to use servos
 
 //Definition of the values and speed to make the wheels move 
 #define stop_wheel 90
-#define forward_left_wheel 70 //max speed is 0
+#define forward_left_wheel 75 //max speed is 0
 #define backward_left_wheel 110 //max speed is 180
 #define forward_right_wheel 110 //max speed is 180
-#define backward_right_wheel 70 //max speed is 0
+#define backward_right_wheel 75 //max speed is 0
 
 //Variables for manual or follow line modes
 #define MANUAL_CONTROL 0

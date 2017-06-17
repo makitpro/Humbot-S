@@ -37,11 +37,12 @@ several hashtags (########################) and EASY MODIFICATION ZONE text.
 ---------------                DETAILS                 ----------------------
 -----------------------------------------------------------------------------
 --  Program: Avoid obstacles with led
---  Version: 1.20b (beta version, it may containt some bugs or errors)
+--  Version: 2.00b (beta version, it may containt some bugs or errors)
     1.00 First working version
     1.10 Added random turn
     1.20 Added tolerance for measurements
---  Date: 23-03-16
+    2.00 Improved obstacles detection
+--  Date: 06-04-17
 --  Authors: Cristobal Selma, Maria Garcia
 
 -----------------------------------------------------------------------------
@@ -66,22 +67,22 @@ Definition of pin numbers where sensors and actuators will be connected
 Initially we use these, but they can be changed at your convinience.*/
 #define L_wheel_servo_pin 11   //Left wheel servo
 #define R_wheel_servo_pin 10   //Right wheel servo 
-#define TRIG_PIN 8             //Trigger pin
-#define ECHO_PIN 7             //Echo pin
+#define TRIG_PIN 2             //Trigger pin
+#define ECHO_PIN 3             //Echo pin
 
 //#################### EASY MODIFICATION ZONE ###############################
 //###########################################################################
-#define TOO_CLOSE 10  //Distance(cm)at which the robot will turn
+#define TOO_CLOSE 1000  //Distance(cm)at which the robot will turn
 #define TURN_TIME 500 //Amount of time (ms) that the robot will be turning
 //###########################################################################
 //###########################################################################
 //---Start of expansion pack led eyes------------------  
-  const int L_REDled_pin = 2;   //Left eye Red LED 
-  const int R_REDled_pin = 7;   //Right eye Red LED
-  const int L_GREENled_pin = 3;   //Left eye Green LED 
-  const int R_GREENled_pin = 6;   //Right eye Green LED
-  const int L_BLUEled_pin = 4;   //Left eye Blue LED 
-  const int R_BLUEled_pin = 5;   //Right eye Blue LED
+  const int L_REDled_pin = 4;   //Left eye Red LED 
+  const int R_REDled_pin = 9;   //Right eye Red LED
+  const int L_GREENled_pin = 5;   //Left eye Green LED 
+  const int R_GREENled_pin = 8;   //Right eye Green LED
+  const int L_BLUEled_pin = 6;   //Left eye Blue LED 
+  const int R_BLUEled_pin = 7;   //Right eye Blue LED
 //---End of expansion pack led eyes------------------  
 
 //Create servo objects for each servo
@@ -91,9 +92,6 @@ Initially we use these, but they can be changed at your convinience.*/
 //Other variables  
   int servo_delay = 20; //Time for the servo to make his function
   int read_Time =150; //Time interval between reading distance
-  long distance;
-  long previous_distance;
-  int tolerance = 10; //tolerance value to take a reading as valid
 /*
 -----------------------------------------------------------------------------
 ------------------------             SETUP         --------------------------
@@ -140,18 +138,29 @@ The main part of the program is called LOOP and it runs indefinitely.
 */
 void loop() 
 {
-distance = readsr(); //Read sensor 
-//Define the action depending on the distance
-  if (previous_distance-tolerance < distance < previous_distance+tolerance){
-  if (distance < TOO_CLOSE){
+//Function that reads the ultrasonic sensor and resturns distance in cm
+  int dataOk=0;
+  float distance;
+  delay(read_Time);
+  for (int i = 0; i < 3 && dataOk != 1; i++) {
+  digitalWrite(TRIG_PIN, LOW);  
+  delayMicroseconds(2); 
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10); 
+  digitalWrite(TRIG_PIN, LOW);
+  distance = pulseIn(ECHO_PIN, HIGH);
+    if (distance!=0){
+    dataOk=1;
+    }
+  }
+//Check if an obstacle is too close, then turn
+if (distance < TOO_CLOSE && distance!=0){
   turn_around(random(TURN_TIME-200,TURN_TIME+200));
   }
     else{
     go_forward();
     }
-  previous_distance = distance;
-  }
-  delay(read_Time);
+
 }
 
 /*
@@ -176,8 +185,6 @@ These functions can be called from different parts of the program.
     delay(servo_delay);//we give time for the servo to act
     R_wheel_servo.write(backward_right_wheel);  //Stop right servo
     delay(servo_delay);//we give time for the servo to act
-
-
     delay(time);
   }
 
@@ -188,22 +195,8 @@ These functions can be called from different parts of the program.
     delay(servo_delay);//we give time for the servo to act
     R_wheel_servo.write(forward_right_wheel);  //Run right servo
     delay(servo_delay);//we give time for the servo to act
-    
   }
 
-  
-//Function that reads the ultrasonic sensor and returns distance in cm
-  int readsr(){
-  long duration, distance;
-  digitalWrite(TRIG_PIN, LOW);  
-  delayMicroseconds(2); 
-  digitalWrite(TRIG_PIN, HIGH);
-  delayMicroseconds(10); 
-  digitalWrite(TRIG_PIN, LOW);
-  duration = pulseIn(ECHO_PIN, HIGH);
-  distance = (duration/2) / 29.1;
-  return(distance);
-  }
   
 //---Start of expansion pack led eyes--------------------------------  
    void writeleds(int red, int green, int blue){

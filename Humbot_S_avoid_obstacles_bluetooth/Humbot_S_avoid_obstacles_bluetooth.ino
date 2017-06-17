@@ -42,12 +42,13 @@ several hashtags (########################) and EASY MODIFICATION ZONE text.
 ---------------                DETAILS                 ----------------------
 -----------------------------------------------------------------------------
 --  Program: Avoid obstacles basic
---  Version: 1.30b (beta version, it may containt some bugs or errors)
+--  Version: 2.00b (beta version, it may containt some bugs or errors)
     1.00 First working version
     1.10 Added random turn
     1.20 Added tolerance for measurements
     1.30 Added bluetooth control
---  Date: 23-03-16
+    2.00 Improved obstacles detection
+--  Date: 06-04-17
 --  Authors: Cristobal Selma, Maria Garcia
 
 -----------------------------------------------------------------------------
@@ -90,7 +91,7 @@ Initially we use these, but they can be changed at your convinience.*/
 
 //#################### EASY MODIFICATION ZONE ###############################
 //###########################################################################
-#define TOO_CLOSE 15  //Distance(cm)at which the robot will turn
+#define TOO_CLOSE 1000  //Distance(cm)at which the robot will turn
 #define TURN_TIME 500 //Amount of time (ms) that the robot will be turning
 //###########################################################################
 //###########################################################################
@@ -102,9 +103,6 @@ Initially we use these, but they can be changed at your convinience.*/
 //Other variables  
   int servo_delay = 20; //Time for the servo to make his function
   int read_Time =150; //Time interval between reading distance
-  long distance; //Distance to objects in cm
-  long previous_distance;
-  int tolerance = 5; //tolerance value to take a reading as valid
   
   char dataBuffer[bufferSize]; //A char buffer to storage the received data from the Bluetooth Serial
   int i = 0; //Buffer iterator
@@ -241,32 +239,31 @@ These functions can be called from different parts of the program.
     delay(servo_delay);//we give time for the servo to act
   }
 
+
+  void avoid() 
+{
 //Function that reads the ultrasonic sensor and resturns distance in cm
-  int readsr(){
-  long duration, distance;
+  int dataOk=0;
+  float distance;
+  delay(read_Time);
+  for (int i = 0; i < 3 && dataOk != 1; i++) {
   digitalWrite(TRIG_PIN, LOW);  
   delayMicroseconds(2); 
   digitalWrite(TRIG_PIN, HIGH);
   delayMicroseconds(10); 
   digitalWrite(TRIG_PIN, LOW);
-  duration = pulseIn(ECHO_PIN, HIGH);
-  distance = (duration/2) / 29.1;
-  return(distance);
-  }  
-  void avoid() 
-{
-distance = readsr(); //Read sensor 
-//Define the action depending on the distance
-  if (previous_distance-tolerance < distance < previous_distance+tolerance){
-  if (distance < TOO_CLOSE){
+  distance = pulseIn(ECHO_PIN, HIGH);
+    if (distance!=0){
+    dataOk=1;
+    }
+  }
+//Check if an obstacle is too close, then turn
+if (distance < TOO_CLOSE && distance!=0){
   turn_around(random(TURN_TIME-200,TURN_TIME+200));
   }
     else{
     go_forward();
     }
-  previous_distance = distance;
-  }
-  delay(read_Time);
 }
   
 //Function for manual control
